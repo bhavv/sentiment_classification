@@ -83,7 +83,7 @@ The model shows challenges with:
 - pandas, numpy, scikit-learn
 - tqdm
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Sentiment_140 dataset from Stanford University
 - RoBERTa model from Facebook AI
