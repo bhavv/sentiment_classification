@@ -2,13 +2,13 @@
 
 A deep learning project for binary sentiment classification (positive/negative) on Twitter data using a fine-tuned RoBERTa-Large transformer model.
 
-## 📊 Dataset
+## Dataset
 
 - **Sentiment_140 Dataset**: 1.6 million tweets
 - **Classes**: Binary (0: Negative, 1: Positive)
 - **Split**: 80% train, 10% validation, 10% test
 
-## 🏗️ Model Architecture
+## Model Architecture
 
 - **Base Model**: RoBERTa-Large (360M parameters)
 - **Custom Components**:
@@ -16,7 +16,7 @@ A deep learning project for binary sentiment classification (positive/negative) 
   - Multi-Sample Dropout for regularization
   - Attention-based pooling layer
   
-## 🔧 Training Configuration
+## Training Configuration
 
 - **Optimizer**: AdamW with Layer-wise Learning Rate Decay (LLRD factor: 0.9)
 - **Learning Rate**: 1e-5 with cosine schedule and warmup
@@ -25,7 +25,7 @@ A deep learning project for binary sentiment classification (positive/negative) 
 - **Mixed Precision**: BFloat16
 - **Regularization**: Dropout (0.1), Weight Decay (0.01)
 
-## 📈 Results
+## Results
 
 | Metric | Score |
 |--------|-------|
@@ -38,14 +38,14 @@ A deep learning project for binary sentiment classification (positive/negative) 
 - Best validation F1: **88.09%** achieved at Epoch 7
 - Training time: ~5 hours on RTX 5090
 
-## 🛠️ Key Features
+## Key Features
 
 1. **Text Preprocessing**: URL removal, mention handling, emoticon processing, repeated character normalization
 2. **Data Augmentation**: Random word deletion during training
 3. **Advanced Optimization**: LLRD, gradient clipping, warmup scheduling
 4. **Hardware Optimization**: TF32, cuDNN benchmarking, mixed precision training
 
-## 🚀 Usage
+## Usage
 
 ```python
 from transformers import AutoTokenizer
@@ -62,12 +62,11 @@ outputs = model(**inputs)
 prediction = torch.argmax(outputs['logits'], dim=1)
 ```
 
-## 📁 Files
+## Files
 
 - `sentiment_classification.ipynb`: Complete training pipeline and error analysis
-- `outputs/`: Saved model checkpoints and training artifacts
 
-## 🔍 Error Analysis
+## Error Analysis
 
 The model shows challenges with:
 - **Sarcasm**: Literal interpretation of sarcastic statements
@@ -76,7 +75,7 @@ The model shows challenges with:
 - **Multi-topic tweets**: Conflicting sentiments in one tweet
 - **Domain drift**: Specialized terminology
 
-## 📦 Requirements
+## Requirements
 
 - PyTorch 2.7+
 - Transformers (Hugging Face)
